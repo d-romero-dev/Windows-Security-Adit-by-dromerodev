@@ -1,0 +1,156 @@
+📥 Guía de Instalación - Windows Security Audit Script by d-romero.dev
+
+Esta guía detallada te ayudará a instalar y ejecutar el script de auditoría de seguridad en tu sistema Windows.
+
+
+🖥️ Requisitos del Sistema:
+Requisitos Obligatorios
+
+Componente              |  Requisito              | Verificación 
+
+Sistema Operativo       | Windows 10 / 11         | winver 
+PowerShell              | Versión 5.1 o superior  | $PSVersionTable.PSVersionPrivilegios
+Privilegios             | Cuenta de Administrador | Requerido 
+Espacio en Disco        | 10 MB mínimo            | Para script y reportes
+
+
+
+📦 Método de Instalación:
+
+Paso 1: Descargar el Script
+
+Ve al repositorio: windows-security-audit
+Click en el archivo SecurityAudit.ps1
+Click en el botón "Raw" (esquina superior derecha).
+Click derecho en la página → "Guardar como..."
+Guarda el archivo como SecurityAudit.ps1 en tu carpeta deseada.
+
+
+Paso 2: Ubicar el Script.
+
+Identificar la carpeta en la que se encuentra el script SecurityAudit.ps1
+Click derecho en el archivo ScriptAudit.ps1
+Copiar Ruta de Acceso al archivo.
+
+Paso 3: 🚀 Primera Ejecución:
+
+- Ejecución desde Powershell.
+
+1. En la barra de windows buscar "Windows PowerShell".
+2. Click derecho: "Ejecutar como administrador".
+4. Se abrirá la consola de ejecución.
+Pegar el siguiente comando: powershell.exe -ExecutionPolicy Bypass -File ""
+
+En donde indica -File"", pegar dentro de las comillas la ruta de acceso al archivo copiada inicialmente.
+-NOTA: Este comando permite la ejecución de scripts por unica vez, a los efectos de ejecutar solamente el script SecurityAudit.ps1
+
+
+# Responde 'S' o 'Y' cuando pregunte.
+
+
+🎯Ejemplo de Ejecución Exitosa puede encontrarse en la carpeta Windows-Security-Audit-by-d-romero.dev\Ejemplo
+
+
+¡Felicidades! Ya tienes instalado Windows Security Audit Script 🎉
+
+Si esta guía te fue útil, considera darle una ⭐ al repositorio en GitHub: https://github.com/d-romero-dev/Windows-Security-Adit-by-dromerodev
+
+
+🎓 Próximos Pasos:
+Una vez instalado correctamente:
+
+- Ejecuta el script regularmente (semanal o mensualmente).
+- Compara reportes para ver mejoras en el tiempo.
+- Actúa sobre hallazgos CRÍTICOS inmediatamente.
+- Documenta cambios realizados para compliance.
+- Personaliza verificaciones según tus necesidades.
+
+📊 Ubicación de Reportes:
+Los reportes se guardan automáticamente en: C:\SecurityAudit\audit_YYYYMMDD_HHMMSS.txt
+
+Ejemplo:
+C:\SecurityAudit\audit_20260120_154530.txt
+
+Para ver todos los reportes generados:
+powershell# Listar reportes
+dir C:\SecurityAudit\*.txt
+
+Para Abrir el reporte más reciente:
+notepad (dir C:\SecurityAudit\*.txt | Sort-Object LastWriteTime -Descending | Select-Object -First 1).FullName
+
+
+🗑️ Desinstalación
+
+- Si deseas eliminar el script:
+
+Remove-Item -Path "C:\Scripts\SecurityAudit\SecurityAudit.ps1"
+
+- Si deseas Eliminar carpeta de reportes:
+
+Remove-Item -Path "C:\SecurityAudit" -Recurse -Force
+
+- Si deseas Eliminar Todo (Script + Reportes):
+
+Remove-Item -Path "C:\Scripts\SecurityAudit" -Recurse -Force
+
+
+
+
+
+----------------------------------
+    SOLUCION DE PROBLEMAS
+----------------------------------
+
+🔧 Solución de Problemas:
+
+Problema 1: "No se puede cargar el archivo porque la ejecución de scripts está deshabilitada"
+Solución:
+powershell# Usa el método de Bypass:
+powershell.exe -ExecutionPolicy Bypass -File ".\SecurityAudit.ps1"
+
+
+Problema 2: "Access Denied" o "Acceso denegado"
+Causa: No estás ejecutando como Administrador.
+Solución:
+
+Cierra PowerShell
+Busca "PowerShell" en el menú Inicio
+Click derecho → "Ejecutar como administrador"
+Ejecuta el script nuevamente
+
+
+Problema 3: "El archivo no existe" o "Cannot find path"
+Solución:
+powershell# Verifica tu ubicación actual
+pwd
+
+# Verifica que el archivo existe
+dir SecurityAudit.ps1
+
+# Navega a la carpeta correcta
+cd C:\ruta\correcta\del\script
+
+
+
+Problema 4: "Get-MpComputerStatus: No se pudo encontrar"
+Causa: Windows Defender no está disponible o está desinstalado.
+Solución: El script continuará con las demás verificaciones. Este check se marcará como WARNING.
+
+
+Problema 5: Caracteres extraños en la salida
+Causa: Codificación de caracteres.
+Solución:
+powershell# Ejecuta esto antes del script:
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
+
+Problema 6: Script se ejecuta pero no genera reporte
+Solución:
+powershell# Verificar permisos en C:\
+# Crear manualmente la carpeta:
+New-Item -ItemType Directory -Path "C:\SecurityAudit" -Force
+# Ejecutar el script nuevamente
+
+--------------------------------------------------------------------------------------------------------
+Windows Security Audit Script by d-romero.dev
+--------------------------------------------------------------------------------------------------------

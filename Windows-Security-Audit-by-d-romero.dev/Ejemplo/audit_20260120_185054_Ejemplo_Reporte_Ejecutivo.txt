@@ -1,0 +1,111 @@
+=================================================================
+   WINDOWS SECURITY AUDIT - Reporte de Auditoría by d-romero.dev
+=================================================================
+Equipo: TESTING/123
+Fecha: 2026-01-20 18:50:55
+Usuario: TESTERSON
+Sistema: Microsoft Windows 11 Home - Build 26100
+
+-----------------------------------------------------------------
+                EJECUTANDO VERIFICACIONES...
+-----------------------------------------------------------------
+
+[1] Windows Defender - Estado
+    Estado: PASS
+    Detalle: Windows Defender está ACTIVO y protección en tiempo real habilitada
+    
+
+[2] Windows Firewall
+    Estado: PASS
+    Detalle: Firewall activo en todos los perfiles (Dominio, Privado, Público)
+    
+
+[3] Actualizaciones de Windows
+    Estado: WARNING
+    Detalle: 2 actualizaciones pendientes
+    Última actualización: 2026-01-12
+    Recomendación: Instalar actualizaciones pendientes
+
+[4] Control de Cuentas de Usuario (UAC)
+    Estado: PASS
+    Detalle: UAC configurado correctamente (Nivel: 5)
+    
+
+[5] Cuenta de Administrador Local
+    Estado: PASS
+    Detalle: Cuenta Administrator no encontrada o ya deshabilitada
+    
+
+[6] Cuenta de Invitado
+    Estado: PASS
+    Detalle: Cuenta Guest no encontrada o ya deshabilitada
+    
+
+[7] Política de Contraseñas
+    Estado: WARNING
+    Detalle: No se pudo verificar política de contraseñas
+    Recomendación: Configurar longitud mínima de 12 caracteres
+
+[8] BitLocker - Cifrado de Disco
+    Estado: PASS
+    Detalle: BitLocker ACTIVO en disco C: (Cifrado: 100%)
+    
+
+[9] Servicios Innecesarios
+    Estado: PASS
+    Detalle: Telnet y FTP deshabilitados/no instalados
+    
+
+[10] Espacio en Disco
+    Estado: PASS
+    Detalle: Disco C: - 37.23% libre (121.07 GB disponibles)
+    
+
+[11] Usuarios Administradores
+    Estado: WARNING
+    Detalle: No se pudo verificar grupo de administradores
+    Recomendación: Aplicar principio de mínimo privilegio
+
+[12] Escritorio Remoto (RDP)
+    Estado: PASS
+    Detalle: Escritorio Remoto está DESHABILITADO
+    
+
+[13] Protección contra Ransomware
+    Estado: WARNING
+    Detalle: Acceso controlado a carpetas DESHABILITADO
+    Recomendación: Habilitar Controlled Folder Access
+
+[14] Protocolo SMBv1
+    Estado: PASS
+    Detalle: SMBv1 está DESHABILITADO (protocolo inseguro removido)
+    
+
+[15] Bloqueo Automático de Pantalla
+    Estado: WARNING
+    Detalle: Bloqueo automático a 0 minutos (recomendado: 15 min)
+    Recomendación: Configurar bloqueo automático a 15 minutos
+
+
+-----------------------------------------------------------------
+                    RESUMEN EJECUTIVO d-romero.dev
+-----------------------------------------------------------------
+Total de Verificaciones: 15
+? PASS:    10 (67%)
+?? WARNING: 5 (33%)
+? FAIL:    0 (0%)
+
+Estado General: REQUIERE ATENCIÓN - Problemas de seguridad detectados
+
+=================================================================
+                  ACCIONES RECOMENDADAS
+=================================================================
+[IMPORTANTE - Próximas 48 horas]
+  1. Instalar 2 actualizaciones pendientes
+  2. Habilitar protección contra ransomware
+  3. Reducir tiempo de bloqueo de pantalla a 15 minutos
+
+=================================================================
+Reporte guardado en: C:\SecurityAudit\audit_20260120_185054.txt
+=================================================================
+
